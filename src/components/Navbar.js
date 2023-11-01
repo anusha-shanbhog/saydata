@@ -10,24 +10,16 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 
 const Navbar = () => {
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ backgroundColor: "white" }}>
       <Toolbar>
-        <Typography variant="h6" noWrap>
-          Your Logo
-        </Typography>
+        <IconButton color="inherit" style={{ marginRight: '20px' }}>
+          <SearchIcon />
+        </IconButton>
+        <InputBase
+          placeholder="Search here..."
+          sx={{ backgroundColor: "#F9FAFB", marginLeft:"20vw", width:"80%" }}
+        />
         <div style={{ flexGrow: 1 }}></div>
-        <div>
-          <div style={{ position: 'relative' }}>
-            <div style={{ position: 'absolute', top: '50%', transform: 'translateY(-50%)', left: 16 }}>
-             
-            </div>
-            <InputBase
-              placeholder="Search..."
-              startAdornment={<SearchIcon />}
-              style={{ paddingLeft: 40 }}
-            />
-          </div>
-        </div>
         <IconButton color="inherit">
           <PersonIcon />
         </IconButton>

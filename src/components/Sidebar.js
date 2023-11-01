@@ -4,13 +4,19 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import HomeIcon from '@mui/icons-material/Home';
-import InboxIcon from '@mui/icons-material/Inbox';
-import MailIcon from '@mui/icons-material/Mail';
 import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
+import RocketIcon from '@mui/icons-material/Rocket';
 import CloseIcon from '@mui/icons-material/Close';
-
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
+import StarBorderOutlinedIcon from '@mui/icons-material/StarBorderOutlined';
+import SettingsInputComponentOutlinedIcon from '@mui/icons-material/SettingsInputComponentOutlined';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import SupportOutlinedIcon from '@mui/icons-material/SupportOutlined';
+import RocketOutlinedIcon from '@mui/icons-material/RocketOutlined';
 const Sidebar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
 
@@ -36,28 +42,56 @@ const Sidebar = () => {
         {isSidebarOpen && (
           <>
             <List sx={{ width: 250 }}>
+                <h2 style={{marginLeft:"10px"}}>abc firm</h2>
               <ListItem button>
                 <ListItemIcon>
-                  <HomeIcon />
+                  <HomeOutlinedIcon />
                 </ListItemIcon>
                 <ListItemText primary="Home" />
               </ListItem>
               <ListItem button>
                 <ListItemIcon>
-                  <InboxIcon />
+                  <FolderOutlinedIcon />
                 </ListItemIcon>
-                <ListItemText primary="Inbox" />
+                <ListItemText primary="All Files" />
               </ListItem>
               <ListItem button>
                 <ListItemIcon>
-                  <MailIcon />
+                  <StarBorderOutlinedIcon />
                 </ListItemIcon>
-                <ListItemText primary="Mail" />
+                <ListItemText primary="Saved" />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <SettingsInputComponentOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Integrations" />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <DeleteOutlineOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Trash" />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>
+                  <SettingsOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Settings and Help" />
+              </ListItem>
+              
+              <ListItem button>
+                <ListItemIcon>
+                  <SupportOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText primary="Support" />
               </ListItem>
             </List>
-            <div style={{ position: 'absolute', bottom: 0, left: 0, width: '92%', backgroundColor: 'blue', padding: '10px', textAlign: 'center' }}>
-              <p>Upgrade Now</p>
-              <Button variant="contained" color="secondary">
+            <div style={{ position: 'absolute', bottom: 0, left: 0, width: '85%', margin: "10px", borderRadius: "10px", backgroundColor: '#E0EDFF', padding: '10px', textAlign: 'center' }}>
+            <RocketOutlinedIcon />
+              <h4>Upgrade Account</h4>
+              <p>Access to unlimited subscription</p>
+              <Button variant="contained" sx={{ backgroundColor: "#0048AD" }}>
                 Upgrade
               </Button>
             </div>

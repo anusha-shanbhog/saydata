@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Grid from '@mui/material/Grid';
+import FolderOutlinedIcon from '@mui/icons-material/FolderOutlined';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import Card from '@mui/material/Card';
@@ -24,11 +25,13 @@ import InputLabel from '@mui/material/InputLabel';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import TextFormatIcon from '@mui/icons-material/TextFormat';
 
 const mockApiResponse = [
-  { id: 1, icon: 'icon1', number: 100, text: 'Card 1 Text' },
-  { id: 2, icon: 'icon2', number: 200, text: 'Card 2 Text' },
-  { id: 3, icon: 'icon3', number: 300, text: 'Card 3 Text' },
+  { id: 1, icon: <FolderOutlinedIcon/>, number: 100, text: 'Uploaded files' },
+  { id: 2, icon: <TextFormatIcon/>, number: 50, text: 'Transcribed' },
+  { id: 3, icon: <BookmarkBorderIcon/>, number: 20, text: 'Saved' },
 ];
 
 const mockApiResponse1 = [
@@ -39,8 +42,11 @@ const mockApiResponse1 = [
 
 export default function Dashboard() {
   const cardStyle = {
-    margin: '8px',
-    height: '150px',
+   marginLeft:"1vw",
+    height: '120px',
+    width:"20vw",
+    borderRadius:"10px",
+    padding:"10px"
   };
 
   const [data, setData] = useState([]);
@@ -84,7 +90,7 @@ export default function Dashboard() {
   };
 
   return (
-    <Grid container>
+    <Grid container style={{backgroundColor:"#F9FAFB"}}>
       <Grid item xs={12}>
         <Navbar />
       </Grid>
@@ -94,10 +100,11 @@ export default function Dashboard() {
       <Grid item xs={12} sm={9} style={{ margin: '0 auto', marginTop:'20px',marginLeft:'-50px', paddingRight: '25px' }}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
-            <div>Hello User</div>
+            <h2>Welcome Shakirat</h2>
+            <p>Upload your Audio and Video to convert to text</p>
           </Grid>
           <Grid item xs={12} sm={6} style={{ textAlign: 'right' }}>
-            <Button variant="contained" color="primary" onClick={handleDialogOpen}>
+            <Button variant="contained" sx={{backgroundColor:"#0048AD", marginTop:"20px"}} onClick={handleDialogOpen}>
               Transcribe
             </Button>
           </Grid>
@@ -108,8 +115,8 @@ export default function Dashboard() {
               <Card variant="outlined" style={cardStyle}>
                 <div>
                   <div>{item.icon}</div>
-                  <div>{item.number}</div>
-                  <div>{item.text}</div>
+                  <h2>{item.number}</h2>
+                  <p>{item.text}</p>
                 </div>
               </Card>
             </Grid>
@@ -134,9 +141,10 @@ export default function Dashboard() {
         <DialogContent>
           {/* Add transcription options here */}
           <FormControl fullWidth>
-            <InputLabel id="transcription-language-label">Transcription Language</InputLabel>
+            <p>Transcription Language</p>
+            <InputLabel id="transcription-language-label"></InputLabel>
             <Select
-              labelId="transcription-language-label"
+              
               id="transcription-language"
               value={transcriptionLanguage}
               onChange={handleTranscriptionLanguageChange}
@@ -147,16 +155,21 @@ export default function Dashboard() {
             </Select>
             <br/>
           </FormControl>
+<p>Upload file</p>
 
           <TextField
-            label="File Upload"
+         
+            label=""
             type="file"
             onChange={handleFileUpload}
+            icon = {BookmarkBorderIcon}
           />
+          <p>Import from a link</p>
           <TextField
             label="Import from Link"
             placeholder="Enter a link"
             value={importLink}
+            width= "100%"
             onChange={handleImportLinkChange}
           />
            <br/>
@@ -164,7 +177,7 @@ export default function Dashboard() {
           <br/>
             <FormControlLabel
               control={
-                <Switch
+                <Checkbox
                   checked={speakerIdentification}
                   onChange={handleSpeakerIdentificationChange}
                   name="speaker-identification"
@@ -176,15 +189,17 @@ export default function Dashboard() {
         </DialogContent>
         <DialogActions>
           
-          <Button onClick={handleTranscribe} color="primary">
+          <Button onClick={handleTranscribe} sx={{backgroundColor:"#0048AD", color:'white'}}>
             Transcribe File
           </Button>
         </DialogActions>
       </Dialog>
        <Grid item xs={12} style={{ marginTop: '20px' }}>
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} sx={{borderRadius:"10px", width:"70vw", marginLeft:"23vw", marginRight:"10vw"}}>
+        <h3 style={{marginLeft:"10px"}}>Recent files</h3>
           <Table>
-            <TableHead>
+            
+            <TableHead sx={{backgroundColor:"#E0EDFF"}}>
               <TableRow>
                 <TableCell>
                   <Checkbox />
